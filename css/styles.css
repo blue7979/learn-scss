@@ -1,0 +1,45 @@
+body {
+  margin: 4rem 0 0;
+  font-size: 1.25rem;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+
+section {
+  padding-block: 3rem;
+}
+
+.container {
+  width: min(100% - 4rem, 50rem);
+  margin-inline: auto;
+}
+
+.surface-primary {
+  background: hsl(206, 33%, 37%);
+  color: white;
+}
+
+.surface-secondary {
+  background: hsl(253, 27%, 35%);
+  color: white;
+}
+
+.surface-accent {
+  background: hsl(45, 82%, 65%);
+  color: black;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1em 2em;
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.text-subdued {
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
