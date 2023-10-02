@@ -1,36 +1,20 @@
 body {
-  margin: 4rem;
-  font-size: 1.25rem;
-  font-family: system-ui, sans-serif;
-  text-align: center;
+  font-family: system-ui;
+  background: #343434;
+  color: #efefef;
+  margin: 3rem;
+  line-height: 1.5;
 }
 
-.btn {
-  display: inline-block;
-  padding: 1em 2em;
-  color: white;
-  cursor: pointer;
-  border: 0;
-  text-decoration: none;
-  text-transform: uppercase;
+p {
+  max-width: 60ch;
 }
-.btn__primary {
-  background: #3f637d;
+
+.text-centerd {
+  text-align: center;
 }
-.btn__primary:hover, .btn__primary:focuse {
-  background: #2b4355;
-}
-.btn__secondary {
-  background: #4c4171;
-}
-.btn__secondary:hover, .btn__secondary:focuse {
-  background: #2b2541;
-}
-.btn__accent {
-  background: #efca5d;
-}
-.btn__accent:hover, .btn__accent:focuse {
-  background: #d1a215;
+.text-centerd p {
+  margin-inline: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
