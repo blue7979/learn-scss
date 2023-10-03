@@ -1,2 +1,4 @@
 .beyond
 .vscode
+node_modules/
+public/
