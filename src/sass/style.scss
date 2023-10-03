@@ -1,31 +1,48 @@
-// colors
-$color-neutral-100: #fff;
-$color-neutral-900: #1f3049;
-$color-primary-400: #0066ff;
+// variables
 
-// font-families
-$ff-sans: 'Open Sans', sans-serif;
+$font-family: "Roboto", sans-serif;
 
-// font-sizes
-$fs-900: 3.75rem;   // 60px
-$fs-800: 3rem;      // 48px
-$fs-600: 1.5rem;    // 24px
-$fs-500: 1.3125rem; // 21px
-$fs-400: 1.125rem;  // 18px
-
-// font-weights
 $fw-400: 400;
 $fw-700: 700;
+$fw-900: 900;
 
-// size/spacing values (Including the border-width)
+$fs-400: 1.125rem;
+$fs-500: 1.25rem;
+$fs-600: 2rem;
+$fs-700: 3rem;
+
+$red-400: hsla(357, 100%, 68%, 1);
+$red-500: hsl(357, 74%, 40%);
+$blue-800: hsla(216, 71%, 16%, 1);
+$neutral-100: hsl(0 0% 100%);
+
 $size-8: 0.5rem;
-$size-12: 0.75rem; // (not in design)
+$size-12: 0.75rem;
 $size-16: 1rem;
-$size-20: 1.25rem;
 $size-32: 2rem;
-$size-36: 2.25rem;
+$size-36: 3rem;
 
-// simple reset
+// Placeholders
+
+%shadow {
+  box-shadow: 0.25rem 0.25rem 1rem rgb(0 0 0 / 0.15);
+}
+
+// Mixins
+
+@mixin interactive-scale($color, $bg, $scale: 1.05) {
+  scale: 1;
+  transition: scale 350ms ease;
+
+  &:hover,
+  &:focus {
+    scale: $scale;
+    color: $color;
+    background-color: $bg;
+  }
+}
+
+// reset
 *,
 *::before,
 *::after {
@@ -38,97 +55,128 @@ $size-36: 2.25rem;
   font: inherit;
 }
 
-// base styles
-body {
-  font-size: $fs-400;
-  font-weight: $fw-400;
-  font-family: $ff-sans;
-  color: $color-neutral-900;
-  background-color: $color-neutral-100;
-  text-align: center;
+img {
+  display: block;
+  max-width: 100%;
 }
 
+body {
+  font-family: $font-family;
+  font-size: $fs-400;
+  color: $blue-800;
+
+  // for demo
+  margin: $size-36 0;
+}
+
+// composition
+
 .container {
-  width: min(100% - 2rem, 60rem);
+  width: min(58rem, 100% - 2rem);
   margin-inline: auto;
 }
 
-.inverted {
-  background: $color-primary-400;
-  color: $color-neutral-100;
+.even-columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--gap, $size-16);
+}
+
+// Utilities
+.margin-block-xl {
+  margin-block: $size-36;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+.fw-black {
+  font-weight: 900;
+}
+
+.text-center{
+  text-align: center;
+}
+.text-accent {
+  color: $red-400;
 }
 
 .page-title {
-  color: $color-primary-400;
-  font-size: $fs-900;
-  margin-block: $size-32;
+  font-size: $fs-700;
+  font-weight: 900;
 }
 
-.pricing-plans {
-  border: $size-8 solid $color-primary-400;
-  display: flex;
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-.tier {
-  flex: 1;
-  padding: $size-36;
-  display: grid;
-  gap: $size-20;
+// block
 
-  &__title {
-    text-transform: uppercase;
-    font-weight: $fw-700;
-    color: $color-primary-400;
+.card {
+  $parent: &;
 
-    .inverted & {
-      color: $color-neutral-100;
-    }
-  }
-  &__feature-list {
-    list-style: none;
-  }
-  &__list-item {
-    &:not(:last-child)::after {
-      content: '';
-      display: block;
-      height: 1px;
-      margin-block: $size-20;
-      background-color: $color-neutral-900;
-      opacity: .2;
-
-    }
-  }
-
-  &__price {
-    font-size: $fs-600;
-    font-weight: $fw-700;
-
-    span {
-      font-weight: $fw-400;
+  border-radius: $size-32;
+  overflow: hidden;
+  background-color: $neutral-100;
+  @extend %shadow;
+  &[data-type="product"] {
+    h2 {
       font-size: $fs-600;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    #{$parent}__content {
+      position: relative;
+      padding: $size-32 $size-16 $size-16;
+      display: flex;
+      align-items: end;
+      gap: $size-16;
+      justify-content: space-between;
+    }
+
+    .button {
+      position: absolute;
+      top: 0;
+      right: $size-16;
+      transform: translateY(-50%);
+    }
+  }
+
+  &[data-type="link-with-image"] {
+    text-decoration: none;
+    color: $red-500;
+
+    @include interactive-scale($neutral-100, $blue-800);
+
+    #{$parent}__content {
+      padding: $size-16 $size-12;
+    }
+
+    img {
+      height: 8.75rem;
+      width: 100%;
+      // object-fit: cover;
+      object-position: top center;
     }
   }
 }
 
 .button {
-  cursor: pointer;
+  display: inline-block;
   border: 0;
-  text-transform: uppercase;
-  font-weight: $fw-700;
-  color: $color-neutral-100;
-  background-color: $color-primary-400;
-  padding: 1em 1.5em;
-
-  justify-self: center;
-
-  .inverted & {
-    color: $color-primary-400;
-    background-color: $color-neutral-100;
-  }
-
-  &:hover,
-  &:focus {
-    color: $color-neutral-100;
-    background-color: rgb($color-neutral-900, 0.7);
-  }
+  text-decoration: none;
+  cursor: pointer;
+  padding: $size-16;
+  background: $red-400;
+  color: $neutral-100;
+  border-radius: 100vw;
+  @extend %shadow;
+  @include interactive-scale($neutral-100, $red-400);
 }
