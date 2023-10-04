@@ -1,5 +1,66 @@
 <template>
-  <div>
-    Hello World!
+  <h1 class="page-title">Hosting Plans</h1>
+  <div class="container">
+    <div class="pricing-plans">
+      <div class="tier">
+        <h2 class="tier__title">Free</h2>
+        <ul class="tier__feature-list">
+          <li class="tier__list-item">
+            1 domain
+          </li>
+          <li class="tier__list-item">
+            5gb of bandwidth
+          </li>
+          <li class="tier__list-item">
+            1gb of diskspace
+          </li>
+          <li class="tier__list-item">
+            5,000 monthly uniques
+          </li>
+        </ul>
+        <p class="tier__price">$0<span>/month</span></p>
+        <button class="button">Get started</button>
+      </div>
+
+      <div class="tier inverted">
+        <h2 class="tier__title">Tiny</h2>
+        <ul class="tier__feature-list">
+          <li class="tier__list-item">
+            5 domain
+          </li>
+          <li class="tier__list-item">
+            250gb of bandwidth
+          </li>
+          <li class="tier__list-item">
+            5gb of diskspace
+          </li>
+          <li class="tier__list-item">
+            15,000 monthly uniques
+          </li>
+        </ul>
+        <p class="tier__price">$19<span>/month</span></p>
+        <button class="button">Get started</button>
+      </div>
+
+      <div class="tier">
+        <h2 class="tier__title">Large</h2>
+        <ul class="tier__feature-list">
+          <li class="tier__list-item">
+            15 domain
+          </li>
+          <li class="tier__list-item">
+            750gb of bandwidth
+          </li>
+          <li class="tier__list-item">
+            20gb of diskspace
+          </li>
+          <li class="tier__list-item">
+            50,000 monthly uniques
+          </li>
+        </ul>
+        <p class="tier__price">$49<span>/month</span></p>
+        <button class="button">Get started</button>
+      </div>
+    </div>
   </div>
 </template>
