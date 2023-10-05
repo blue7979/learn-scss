@@ -1,5 +1,9 @@
 // font-families
-$ff-sans: "Open Sans", sans-serif;
+$ff-sans: "Lato", sans-serif;
+$ff-serif: "Abril Fatface", sans-serif;
+
+$ff-base: $ff-sans;
+$ff-accent: $ff-serif;
 
 $font-sizes: (
   900: 3.75rem, // 60px

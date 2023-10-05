@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/scss/main.scss"],
   modules: ['nuxt-purgecss'],
-  purgecss: {
-    enabled: true, // Always enable purgecss
-  }
+  // purgecss: {
+  //   enabled: true, // Always enable purgecss
+  // }
 })
