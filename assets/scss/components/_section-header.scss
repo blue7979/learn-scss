@@ -1,0 +1,35 @@
+@use '../abstracts/' as *;
+
+.section-header {
+  &:has(p) { // firefox not supported
+    margin-block-end: size(36);
+  }
+
+  &:not(:has(p)) {
+    margin-block-end: size(36) * 2.5;
+  }
+
+  &[data-decoration="true"]::after {
+    content: "";
+    display: inline-block;
+    width: 10rem;
+    height: 2px;
+    margin-block-start: size(36);
+    background-color: currentColor; // 부모 색상 가져옴
+
+    .text-center & {
+      margin-inline: auto;
+    }
+  }
+
+  &.text-center[data-decoration="true"] {
+    margin-inline: auto;
+  }
+
+  p {
+    max-width: 50ch;
+    .text-center & {
+      margin-inline: auto;
+    }
+  }
+}

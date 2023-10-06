@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+
+.meal {
+  // padding-block: $hero-padding;
+  background-image: url("/img/meals-bg.png");
+  background-size: cover;
+  background-position: center;
+}

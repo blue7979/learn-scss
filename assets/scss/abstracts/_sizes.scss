@@ -9,14 +9,16 @@ $sizes: (
   48: 3rem,
 );
 
-$section-padding: 7rem;
-$hero-padding: 20rem;
+// 높이가 줄어들면 애니메이션처럼 줄어듬
+// 모바일에는 높이를 줄일 필요가 있기 때문에 clamp를 사용한다.
+$hero-padding: clamp(12rem, 15vh, 20rem);
+$section-padding: clamp(3rem, 10vh, 7rem);
 
 $container-inline-padding: 1rem;
-$container-max-width: 77.75rem;
-$container-max-width-wide: 100rem;
+$container-max-width: 67rem;
+$container-max-width-wide: 80rem;
 
-$card-body-padding: 5rem;
+$card-body-padding: clamp(2rem, 2.5vw, 5rem);
 
 $grid-gap: 1.5rem;
 $flex-group-gap: 1rem;
