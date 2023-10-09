@@ -27,3 +27,4 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
+
